@@ -9,6 +9,11 @@ header{
 nav {
     height: 50px;
     background: #212121;
+    /*sticky menu*/
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+
 }
 
 .menu {
@@ -38,6 +43,8 @@ nav {
 
     height: 87px;
     background-color:rgba(0,0,0, .6);
+     /*sticky menu*/
+     top:50px;
 }
 
 .subheader .subheader_logo {
