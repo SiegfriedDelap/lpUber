@@ -3,6 +3,11 @@ $black: #222222
 $blue: #1EACC7
 $red: #FF5656
 
+
+@mixin btn_hover
+    &:hover
+        background-image: none
+        background-color: $blue
     
 *
     font-family: 'Roboto', sans-serif
@@ -24,13 +29,16 @@ nav
     margin: 0
     list-style-type: none
 
-    .menu_link
+    &_link
         font-style: normal
         font-weight: 300
         font-size: 15px
         color: $white
+        &:hover
+            color: $blue
+            text-decoration: none
 
-    .menu_item
+    &_item
         border-right: 2px dotted black
         padding-right: 28px
 
@@ -41,12 +49,12 @@ nav
     background-color: rgba(0, 0, 0, 0.6)
     top: 50px
 
-    .subheader_logo
+    &_logo
         display: block
         max-width: 100%
         margin-top: 17px
 
-    .subheader_official
+    &_official
         margin-top: 6px
         opacity: 0.5
         font-style: normal
@@ -54,7 +62,7 @@ nav
         font-size: 13px
         color: $white
 
-    .subheader_call
+    &_call
         margin-top: 19px
         font-style: normal
         font-weight: 300
@@ -62,7 +70,7 @@ nav
         color: $white
         text-align: right
 
-    .subheader_phone
+    &_phone
         display: block
         margin-top: 8px
         font-style: normal
@@ -73,7 +81,7 @@ nav
         color: $white
         line-height: 12px
 
-    .subheader_btn
+    &_btn
         margin-top: 19px
         width: 172px
         height: 46px
@@ -87,13 +95,14 @@ nav
         text-transform: uppercase
         color: $white
         text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.21)
+        @include btn_hover
 
 .promo
     min-height: 800px
     background: url('../img/bg_first_section.png') center (center / cover) no-repeat
     padding: 152px 0 186px 0
 
-    .promo_header
+    &_header
         font-style: normal
         font-weight: 700
         font-size: 60px
@@ -103,7 +112,7 @@ nav
         margin: 0
         text-align: center
 
-    .promo_subheader
+    &_subheader
         font-style: normal
         font-weight: 700
         font-size: 36px
@@ -114,7 +123,7 @@ nav
         text-align: center
         margin-top: 22px
 
-    .promo_descr
+    &_descr
         color: $white
         font-size: 18px
         font-weight: 400
@@ -122,7 +131,7 @@ nav
         text-align: center
         margin-top: 23px
 
-    .promo_btn
+    &_btn
         display: block
         margin: 115px auto 0 auto
         width: 259px
@@ -136,6 +145,7 @@ nav
         text-transform: uppercase
         color: $white
         text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.21)
+        @include btn_hover
 
 .reasons
     min-height: 820px
@@ -164,7 +174,7 @@ nav
     color: #222222
 
 .subtitle
-    margin-top: 19px 
+    margin-top: 2px 
     font-weight: 400
     font-size: 17px
     color: #222222
@@ -263,6 +273,30 @@ nav
             margin: 0 auto
             border-radius: 100%
             cursor: pointer
+            &::before
+                content: ''
+                display: block
+                width: 14px
+                height: 3px
+                background-color: $blue
+                transition: 0.3s all
+            &::after
+                content: ''
+                display: block
+                position: absolute
+                left: 50%
+                transform: translateX(-50%)
+                height: 14px
+                width: 3px
+                background-color: $blue
+                transition: 0.3s all
+            &:hover
+                &::before, &::after
+                    background-color: $red
+
+                    
+               
+
 
 .choice
     padding: 59px 0 138px 0
@@ -276,4 +310,128 @@ nav
             color:#222
             font-size: 17px
             font-weight: 300
+
+.require
+	padding: 68px 0 84px 0
+	&_block
+		margin: 33px 0
+		&_nmb
+			margin-bottom: 0px
+	&_title
+		font-size: 22px
+		font-weight: 400
+		color:#1ca8c3
+	&_list
+		list-style-type: none
+		padding-left: 50px
+		margin-top: 22px
+		li
+			position: relative
+			font-size: 17px
+			font-weight: 300
+			line-height: 24px
+			margin-bottom: 10px
+			&::before
+				content: ''
+				display: block
+				position: absolute
+				left: -31px
+				top: 3px
+				width: 21px
+				height: 20px
+				background: url('../icons/okBlue_icon.png') center (center / cover) no-repeat
+	&_descr
+		margin-top: 25px
+		font-size: 17px
+		font-weight: 300
+		line-height: 24px
+		color: #1ca8c3
+	.warning
+		.require_title
+			color: $red
+		li
+			&::before
+				background: url('../icons/okRed_icon.png') center (center / cover) no-repeat
+
+.world
+	padding: 46px 0 50px 0
+	background: url('../img/bg_sixthSection.png') center (center / cover) no-repeat
+	min-height: 717px
+	&_link
+		display: block
+		margin: 0 auto
+		margin-top: 456px
+		font-weight: 400
+		font-size: 15px
+		text-align: center
+		text-transform: uppercase
+		color: #1FBAD6
+		&:hover
+            color: $red
+            text-decoration: none
+
+.footer
+	&_divider
+		width: 299px
+		height: 4px
+		background-color: #1fbad6
+		margin: 0 auto
+		margin-top: 14px
+	&_wrapper
+		display: flex 
+		justify-content: space-between
+		align-items: flex-start
+		padding-top: 32px
+	&_wrapper > div 
+		width: 33%
+		&:nth-child(3)
+			display: flex 
+			justify-content: flex-end
+	&_social
+		width: 160px
+		display: flex
+		justify-content: space-between
+		&_item 
+			display: flex 
+			justify-content: center
+			align-items: center
+			margin: 0 4px 
+			width: 32px
+			height: 32px
+			background-color: #070716
+			border-radius: 100%
+			i 
+				color: #fff
+	&_links
+		width: 390px
+		margin: 0 auto
+		&_main 
+			display: flex 
+			justify-content: space-between
+			padding: 0 10px
+			a 
+				color: #070716
+				font-size: 15px
+				font-weight: 300
+				text-transform: uppercase
+		&_sub 
+			display: flex 
+			justify-content: space-between
+			margin-top: 10px
+			a 
+				color: #999999
+				font-size: 11px
+				font-weight: 300
+				text-transform: uppercase
+		&_lang 
+			display: block 
+			margin: 0 auto
+			color: #1fbad6
+			font-size: 11px
+			font-weight: 400
+			margin-top: 19px
+			text-transform: uppercase
+			text-align: center
+
+
 
